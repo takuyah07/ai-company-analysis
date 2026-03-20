@@ -109,8 +109,12 @@ async def download_diagnosis_pdf(
     company_name = report.report_data.get("company", {}).get("name", "report")
     filename = f"diagnosis_{company_name}.pdf"
 
+    from urllib.parse import quote
+
     return Response(
         content=pdf_bytes,
         media_type="application/pdf",
-        headers={"Content-Disposition": f'attachment; filename="{filename}"'},
+        headers={
+            "Content-Disposition": f"attachment; filename*=UTF-8''{quote(filename)}"
+        },
     )
