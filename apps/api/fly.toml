@@ -10,5 +10,10 @@ primary_region = 'nrt'
   auto_start_machines = true
   min_machines_running = 0
 
+[[vm]]
+  memory = '512mb'
+  cpu_kind = 'shared'
+  cpus = 1
+
 [env]
   CORS_ORIGINS = '["https://ai-company-analysis.vercel.app"]'
